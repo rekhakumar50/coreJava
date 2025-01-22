@@ -1,12 +1,15 @@
 package com.example.demo.Enum;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 
 @Getter
+@AllArgsConstructor
 public enum EntityTypeEnum {
+    //By default, enum constructor is private. Other modifiers are not allowed
 
     SOLE_PROPRIETOR("Sole Proprietor", "PP"),
     PARTNERSHIP("Partnership", "PP"),
@@ -20,12 +23,6 @@ public enum EntityTypeEnum {
 
     private final String type;
     private final String code;
-
-    //By default, enum constructor is private. Other modifiers are not allowed
-    EntityTypeEnum(String type, String code) {
-        this.type = type;
-        this.code = code;
-    }
 
     public static String getCodeForType(String type) {
         return Arrays.stream(EntityTypeEnum.values())
